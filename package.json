@@ -1,0 +1,20 @@
+{
+  "name": "blogSportmngr",
+  "version": "1.0.0",
+  "description": "SportMngr Bolg and tutorial pages",
+  "author": "Benoit Aspirault",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^1.0.0",
+    "frontmatter-markdown-loader": "^3.1.0"
+  }
+}

@@ -47,7 +47,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/markdownit"],
+  modules: [],
   /*
    ** Build configuration
    */
@@ -61,10 +61,7 @@ export default {
       config.module.rules.push({
         test: /\.md$/,
         include: [path.resolve(__dirname, "posts")],
-        loader: "frontmatter-markdown-loader",
-        options: {
-          mode: [Mode.VUE_COMPONENT]
-        }
+        loader: "frontmatter-markdown-loader"
       });
     }
   }

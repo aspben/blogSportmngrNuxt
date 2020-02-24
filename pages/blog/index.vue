@@ -13,23 +13,22 @@ export default {
     "post-preview": () => import("@/components/postPreview.vue")
   },
   props: ["slug"],
+
   async asyncData() {
-    const resolve = require.context("@/posts/", true, /\.md$/);
-    const imports = resolve
-      .keys()
-      .map(key => {
-        const [, slug] = key.match(/\/(.+)\.md$/);
-        return Object.assign(resolve(key), { slug });
-      })
-      .filter(post => post.attributes.category == "blog");
+    const context = await require.context("@/posts/", true, /\.md$/);
+    const posts = await context.keys().map(key => ({
+      ...context(key),
+      path: `/blog/${key.replace(".md", "").replace("./", "")}`
+    }));
+
+    console.log(posts);
+
     return {
-      posts: imports
+      posts
     };
   }
 };
 </script>
-
-
 
 <style scoped>
 .previewWrapper {

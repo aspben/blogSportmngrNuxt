@@ -72,6 +72,6 @@ th {
   padding: 0.5em 1em;
 }
 
-a {
+.markdown a {
   background-image: linear-gradient(to right, #e76d7a 10%, #f5a339 100%);
 }

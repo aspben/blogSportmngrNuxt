@@ -12,7 +12,7 @@
           >{{ tag }}</span
         >
       </div>
-      <div class="px-6 py-4" v-html="post.html"></div>
+      <div class="markdown px-6 py-4" v-html="post.html"></div>
     </div>
   </section>
 </template>

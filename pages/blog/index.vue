@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div v-for="i in 3" :key="i">
-      <post-preview prefix="blog" :slug="slug" :posts="posts[i]" />
+  <div class="previewWrapper">
+    <div v-for="(post, index) of posts" :key="index">
+      <post-preview prefix="blog" :slug="slug" :post="posts[index]" />
     </div>
   </div>
 </template>
@@ -28,3 +28,14 @@ export default {
   }
 };
 </script>
+
+
+
+<style scoped>
+.previewWrapper {
+  padding: 16px 16px 16px 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+</style>

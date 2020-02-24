@@ -50,10 +50,10 @@
       </article>
     </main>
 
-    <footer class="bg-red-900 text-white">
-      <div class="flex flex-col lg:flex-row p-4">
+    <footer class="bg-red-800 text-white">
+      <div class="flex flex-col justify-between lg:flex-row p-4">
         <ul class="flex justify-around mb-4">
-          <li>
+          <li class="mx-4">
             <a href="mailto:benoit.aspirault@gmail.com" class="text-white hover:text-gray-400">
               <svg width="25" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -64,7 +64,7 @@
             </a>
           </li>
 
-          <li>
+          <li class="mx-4">
             <a
               href="https://www.youtube.com/channel/UCeRDR_LCvryc05OjIWcn6tg"
               target="_blank"

@@ -4,6 +4,7 @@ path: /elo-rating
 date: 2019-09-24
 summary: explanation of the elo rating and how to use this ranking system in your league.
 tags: ["sport league", "elo", "ranking methods"]
+headerImage: podium.jpg
 category: blog
 ---
 

@@ -1,7 +1,7 @@
 <template>
   <div class="previewWrapper">
     <div v-for="(post, index) of posts" :key="index">
-      <post-preview prefix="blog" :slug="slug" :post="posts[index]" />
+      <post-preview prefix="documentation" :slug="slug" :post="posts[index]" />
     </div>
   </div>
 </template>
@@ -20,9 +20,9 @@ export default {
       .keys()
       .map(key => ({
         ...context(key),
-        path: `/blog/${key.replace(".md", "").replace("./", "")}`
+        path: `/documentation/${key.replace(".md", "").replace("./", "")}`
       }))
-      .filter(post => post.attributes.category === "blog");
+      .filter(post => post.attributes.category === "documentation");
 
     console.log(posts);
 
@@ -37,7 +37,7 @@ export default {
 .previewWrapper {
   padding: 16px 16px 16px 16px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(308px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px;
 }
 </style>

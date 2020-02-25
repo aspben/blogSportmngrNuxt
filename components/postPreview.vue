@@ -2,12 +2,17 @@
   <nuxt-link class="cursor-pointer" :to="`/blog${post.attributes.path}`">
     <div class="rounded overflow-hidden shadow-lg">
       <img
-        v-if="post.attributes.image"
+        v-if="post.attributes.headerImage"
         class="w-full"
-        src="/img/card-top.jpg"
-        alt
+        :src="require(`~/posts/images/${post.attributes.headerImage}`)"
+        alt="headerImage"
       />
-      <div v-else class="bg-red-800 h-10 w-full"></div>
+      <img
+        v-else
+        class="w-full"
+        src="~/assets/images/default.png"
+        alt="headerImage"
+      />
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{{ post.attributes.title }}</div>
         <p class="text-gray-700 text-base">{{ post.attributes.summary }}</p>
@@ -42,3 +47,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+img {
+  height: 135px;
+  max-height: 135px;
+  max-width: 500px;
+  object-fit: cover;
+}
+</style>

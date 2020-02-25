@@ -32,7 +32,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["~/assets/css/fluiditype.css"],
   /*
    ** Plugins to load before mounting the App
    */

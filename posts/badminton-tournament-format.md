@@ -4,6 +4,7 @@ path: /badminton-tournament-format
 date: 2019-09-23
 summary: When organizing a badminton tournament, one of the most important aspects is to pick a format that works with the size of the event and is pleasurable for your participant
 tags: ["badminton", "tournament format"]
+headerImage: default.png
 category: blog
 ---
 

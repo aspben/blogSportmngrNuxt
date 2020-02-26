@@ -1,3 +1,5 @@
+/*Imspired by Fluiditype : https://www.fluiditype.com/ */
+
 /* Set box-sizing globally to handle padding and border widths */
 *,
 *:after,
@@ -5,17 +7,51 @@
   box-sizing: border-box;
 }
 
+/* Import of the Inter Font*/
+@import url("https://rsms.me/inter/inter.css");
+@supports (font-variation-settings: normal) {
+}
 html {
-  font-family: Roboto;
+  font-family: "Inter", sans-serif;
 }
 
 /* Base*/
 :root {
-  --fontSize: calc(12px + 0.698vw); /* The character count on */
+  --headingColor: #b71c1c;
+
+  --maxMainWidth: 800;
+  --minFontSize: 12; /* min font size of the regular text*/
+  --maxFontSize: 22; /* max font size of the regular text*/
+
+  --maxMainWidthPX: calc(var(--maxMainWidth) * 1px);
+  --minFontSizePX: calc(
+    var(--minFontSize) * 1px
+  ); /* min font size of the regular text*/
+  --maxFontSizePX: calc(
+    var(--maxFontSize) * 1px
+  ); /* max font size of the regular text*/
+
+  --fontSizeSlope: calc(
+    (22 - 12) / (800 - 320) * 100
+  ); /* (maxFontSize - minfontsize ) / (maxMainContainerWidth - minMainContainerWidth) */
+  --fontSizeZero: calc(12 - (var(--fontSizeSlope) * 320 / 100)) * 1px; /* min font size  * fontSizeAt320px*/
+  --fontSize: min(
+    max(
+      var(--minFontSizePX),
+      calc(var(--fontSizeZero) + var(--fontSizeSlope) * 1vw)
+    ),
+    var(--maxFontSizePX)
+  ); /* The character count on */
   --lineHeight: calc(var(--fontSize) * 1.4);
   --letterSpacing: calc(var(--fontSize) * 0.0015);
   --fontWeight: 300;
-  --headingColor: #b71c1c;
+  --linkColor: rgba(183, 28, 28, 0.1);
+  --linkColorHover: rgba(183, 28, 28, 0.75);
+}
+
+.main {
+  max-width: var(--maxMainWidthPX);
+  margin: 0 auto;
 }
 
 p,
@@ -29,7 +65,7 @@ mark {
   line-height: var(--lineHeight);
   letter-spacing: var(--letterSpacing);
   font-feature-settings: normal;
-  font-family: Roboto;
+  font-family: "Inter", sans-serif;
 }
 
 p,
@@ -41,7 +77,7 @@ blockquote {
 }
 
 p {
-  margin-bottom: calc(var(--lineHeight) * 1.5);
+  margin: var(--lineHeight) 0 var(--lineHeight) 0;
 }
 
 code {
@@ -49,6 +85,8 @@ code {
   line-height: var(--lineHeight);
   letter-spacing: var(--letterSpacing);
   font-weight: calc(var(--fontWeight) * 1.33);
+  color: #eb5757;
+  font-family: "Inter", sans-serif;
 }
 
 mark {
@@ -60,7 +98,7 @@ mark {
   letter-spacing: var(--letterSpacing);
   font-weight: calc(var(--fontWeight) * 1.33);
   word-break: break-word;
-  font-family: Roboto;
+  font-family: "Inter", sans-serif;
 }
 
 blockquote {
@@ -72,6 +110,45 @@ blockquote {
   padding: 2.5vw;
   margin: 2%;
   font-style: italic;
+  font-family: "Inter", sans-serif;
+}
+
+.markdown a {
+  padding: 2px 0 1px 0;
+  text-decoration: none;
+  background-image: linear-gradient(
+    transparent 0%,
+    transparent calc(50% - 9px),
+    var(--linkColor) calc(50% - 9px),
+    var(--linkColor) 100%
+  );
+  transition: background-position 120ms ease-in-out, padding 120ms ease-in-out;
+  background-size: 100% 200%;
+  background-position: 0 0;
+  word-break: break-word;
+  color: #545454;
+  text-decoration-skip-ink: none;
+  font-family: "Inter", sans-serif;
+}
+
+.markdown a:focus {
+  background-image: linear-gradient(
+    transparent 0%,
+    transparent calc(50% - 9px),
+    var(--linkColorHover) calc(50% - 9px),
+    var(--linkColorHover) 100%
+  );
+  background-position: 0 100%;
+}
+
+.markdown a:hover {
+  background-image: linear-gradient(
+    transparent 0%,
+    transparent calc(50% - 9px),
+    var(--linkColorHover) calc(50% - 9px),
+    var(--linkColorHover) 100%
+  );
+  background-position: 0 100%;
 }
 
 pre {
@@ -89,75 +166,71 @@ pre {
   word-break: break-all;
   font-size: calc(var(--fontSize) * 1.1);
   letter-spacing: var(--letterSpacing);
+  font-family: "Inter", sans-serif;
 }
 
 h1 {
   font-size: calc(var(--fontSize) * 3);
   letter-spacing: var(--letterSpacing);
   font-weight: calc(var(--fontWeight) * 2.66);
+  font-family: "Inter", sans-serif;
   color: var(--headingColor);
-  display: inline;
 }
 
 h2 {
-  margin-top: calc(var(--fontSize) * 10);
   font-size: calc(var(--fontSize) * 2);
   letter-spacing: var(--letterSpacing);
   font-weight: calc(var(--fontWeight) * 2.33);
+  font-family: "Inter", sans-serif;
   color: var(--headingColor);
-  display: inline;
+  margin: var(--lineHeight) 0 var(--lineHeight) 0;
 }
 
 h3 {
   font-size: calc(var(--fontSize) * 1.75);
   letter-spacing: var(--letterSpacing);
-  font-weight: calc(var(--fontWeight) * 1.5);
+  font-weight: calc(var(--fontWeight) * 2);
+  font-family: "Inter", sans-serif;
+  color: var(--headingColor);
+  margin: var(--lineHeight) 0 var(--lineHeight) 0;
 }
 
 h4 {
   font-size: calc(var(--fontSize) * 1.5);
   letter-spacing: var(--letterSpacing);
   font-weight: calc(var(--fontWeight) * 1.667);
+  font-family: "Inter", sans-serif;
+  color: var(--headingColor);
+  margin: var(--lineHeight) 0 var(--lineHeight) 0;
 }
 
 h5 {
   font-size: calc(var(--fontSize) * 1.25);
   letter-spacing: var(--letterSpacing);
   font-weight: calc(var(--fontWeight) * 1.5);
+  font-family: "Inter", sans-serif;
+  color: var(--headingColor);
 }
 
 h6 {
   font-size: calc(var(--fontSize) * 1);
   letter-spacing: var(--letterSpacing);
   font-weight: calc(var(--fontWeight) * 1);
+  font-family: "Inter", sans-serif;
+  color: var(--headingColor);
 }
 
-table {
-  text-align: center;
-  background-color: #282c35;
-  color: #abb2bf;
-  margin: 0 0 1.5625em;
+.fluidGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: min(max(16px, 1vw), 32px);
+}
+
+.card {
+  /* card styling is optional*/
+  background-image: linear-gradient(45deg, #08aeea 0%, #2af598 100%);
   border-radius: 4px;
   overflow: auto;
-  padding: 0;
-  tab-size: 4;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  font-size: calc(var(--fontSize) * 1.1);
-  letter-spacing: var(--letterSpacing);
-  width: 100%;
-  border-spacing: 0;
-}
-
-table tbody tr td {
-  border-bottom: thin solid rgba(255, 255, 255, 0.12);
-  border-top: thin solid rgba(255, 255, 255, 0.12);
-}
-
-td {
-  padding: 1vw;
-}
-
-.wrapper {
-  padding: 1vw 1vw 1vw 1vw;
+  padding: 2.5vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }

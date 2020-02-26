@@ -23,9 +23,6 @@ export default {
         path: `/blog/${key.replace(".md", "").replace("./", "")}`
       }))
       .filter(post => post.attributes.category === "blog");
-
-    console.log(posts);
-
     return {
       posts
     };

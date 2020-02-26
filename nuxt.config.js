@@ -1,5 +1,3 @@
-import Mode from "frontmatter-markdown-loader/mode";
-
 export default {
   mode: "universal",
   /*
@@ -14,7 +12,8 @@ export default {
         hid: "description",
         name: "description",
         content: process.env.npm_package_description || ""
-      }
+      },
+      { name: "robots", content: "index, follow" }
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -36,7 +35,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ["~/plugins/lazyload"],
   /*
    ** Nuxt.js dev-modules
    */
@@ -47,7 +46,11 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ["@nuxtjs/google-gtag"],
+
+  "google-gtag": {
+    id: "G-1FZ0MEZV8C"
+  },
   /*
    ** Build configuration
    */
@@ -60,7 +63,7 @@ export default {
 
       config.module.rules.push({
         test: /\.md$/,
-        include: [path.resolve(__dirname, "posts")],
+        include: path.resolve(__dirname, "posts"),
         loader: "frontmatter-markdown-loader"
       });
     }

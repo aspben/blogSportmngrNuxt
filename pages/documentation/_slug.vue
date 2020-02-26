@@ -1,8 +1,8 @@
 <template>
   <section>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div class=" overflow-hidden">
       <div class="px-6 py-4">
-        <h1 class=" mb-2">{{ post.attributes.title }}</h1>
+        <h1 class="mb-2">{{ post.attributes.title }}</h1>
       </div>
       <div class="px-6 py-4">
         <span
@@ -12,27 +12,20 @@
           >{{ tag }}</span
         >
       </div>
-      <div class="markdown px-6 py-4" v-html="post.html"></div>
+      <div class=" markdown px-6 py-4" v-html="post.html"></div>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: "documentationPostView",
+  name: "documentPostView",
 
   async asyncData({ params }) {
-    try {
-      console.log(params.slug);
-      const post = await import(`~/posts/${params.slug}.md`);
-      return {
-        post
-      };
-    } catch (error) {
-      return false;
-    }
+    const post = await import(`~/posts/${params.slug}.md`);
+    return {
+      post
+    };
   }
 };
 </script>
-
-<style></style>

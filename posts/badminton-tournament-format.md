@@ -8,7 +8,10 @@ headerImage: default.png
 category: blog
 ---
 
-When organizing a badminton tournament, one of the most important aspects is to pick a format that works with the size of the event and is pleasurable for your participant. In this post, we will go through the pros and cons of the different formats you can choose from. The proposed options are:
+When organizing a badminton tournament, one of the most important aspects
+is to pick a format that works with the size of the event and is pleasurable
+for your participant. In this post, we will go through the pros and cons of
+the different formats you can choose from. The proposed options are:
 
 - Round robin phase with single elimination bracket
 - Double elimination bracket

@@ -24,8 +24,6 @@ export default {
       }))
       .filter(post => post.attributes.category === "documentation");
 
-    console.log(posts);
-
     return {
       posts
     };
